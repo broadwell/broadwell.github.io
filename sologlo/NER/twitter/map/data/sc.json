@@ -1,0 +1,1 @@
+{"cities":[{"scale":"0.87","color":"red","geometry":{"type":"Point","coordinates":[-81.0000915527344,34.000431060791]},"properties":{"name":"South Carolina"},"id":1},{"scale":"0.19","properties":{"name":"South Carolina"},"id":2,"color":"blue","geometry":{"coordinates":[-81.0000915527344,34.000431060791],"type":"Point"}}],"type":"FeatureCollection"}
