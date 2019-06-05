@@ -34,12 +34,12 @@
 							"@type": "oa:Annotation",
 							"motivation": "sc:painting",
 							"resource": {
-								"@id": "ec2-3-14-12-54.us-east-2.compute.amazonaws.com:8182/iiif/2/fireworks.png/full/full/0/default.jpg",
+								"@id": "http://ec2-3-14-12-54.us-east-2.compute.amazonaws.com:8182/iiif/2/fireworks.png/full/full/0/default.jpg",
 								"@type": "dctypes:Image",
 								"format": "image/jpeg",
 								"service": {
 									"@context": "http://iiif.io/api/image/2/context.json",
-									"@id": "ec2-3-14-12-54.us-east-2.compute.amazonaws.com:8182/iiif/2/fireworks.png",
+									"@id": "http://ec2-3-14-12-54.us-east-2.compute.amazonaws.com:8182/iiif/2/fireworks.png",
 									"profile": "http://iiif.io/api/image/2/level2.json"
 								},
 								"height": 9600,
