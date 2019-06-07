@@ -1,0 +1,304 @@
+<!doctype html> 
+<head>
+
+<title>Twitter event visualizations</title>
+
+<link type="text/css" rel="stylesheet" href="src/css/graph.css">
+<link type="text/css" rel="stylesheet" href="src/css/detail.css">
+<link type="text/css" rel="stylesheet" href="src/css/legend.css">
+<link type="text/css" rel="stylesheet" href="examples/css/lines.css">
+<script src="vendor/d3.v3.js"></script> 
+<script src="vendor/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
+
+<script src="rickshaw.js"></script> 
+
+<style>
+#y_axis0 {
+  position: absolute;
+  width: 50px;
+  height: 800px;
+}
+#y_axis1 {
+  position: absolute;
+  left: 1070px;
+  width: 40px;
+  height: 800px;
+}
+#x_axis {
+  position: relative;
+  left: 60px;
+  height: 40px;
+}
+#chart {
+  left: 60px;
+  width: 1000px
+  position: absolute;
+}
+</style>
+
+</head>
+
+<body>
+  
+<div id="chart_container">
+  <div id="y_axis0"></div>
+  <div id="y_axis1"></div>
+  <div id="chart"></div>
+  <div id="x_axis"></div>
+</div>
+<!--<div id="legend_container">
+  <div id="smoother" title="Smoothing"></div>
+  -->
+<div id="legend"></div>
+<!-- <div id="slider"></div> -->
+ 
+<script> 
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+var xAxisFormat = function(dval) {
+  dval = dval * 1000;
+  var dax = new Date(dval);
+  //var dFormat = d3.time.format.utc("%H:%M");
+  var dFormat = d3.time.format("%H:%M");
+  //var dFormat = d3.time.format.utc("%e %b");
+  console.log("val: " + dval + " date " + dax + ", formatted date: " + dFormat(dax));
+  return dFormat(dax);
+}
+
+var tweetScale = d3.scale.linear().domain([0, 1000]).nice();
+var tvScale = d3.scale.linear().domain([0, 20]).nice();
+
+var ajaxGraph = new Rickshaw.Graph.Ajax({
+  element: document.getElementById("chart"),
+  width: 1000, 
+  height: 400,
+  renderer: 'line', 
+  dataURL: 'gop_places_all.json',
+  onData: function(d) {
+    //    d[0].data[0].y = d[0].data[0].y;
+    return d },
+  onComplete: function(transport) {
+    var graph = transport.graph;
+    var detail = new Rickshaw.Graph.HoverDetail({ graph: graph,
+      formatter: function(series, x, y) {
+        var matchCount = y.toFixed();
+        var content = numberWithCommas(matchCount);
+        if (series['name'] == "NS_United_States") {
+          content += " NS_United_States";
+        } else if (series['name'] == "NS_Iran") {
+          content += " NS_Iran";
+        } else if (series['name'] == "NS_Washington,_D.C.") {
+          content += " NS_Washington,_D.C.";
+        } else if (series['name'] == "NS_China") {
+          content += " NS_China";
+        } else if (series['name'] == "NS_Syria") {
+          content += " NS_Syria";
+        } else if (series['name'] == "NS_Russia") {
+          content += " NS_Russia";
+        } else if (series['name'] == "NS_Iraq") {
+          content += " NS_Iraq";
+        } else if (series['name'] == "NS_Israel") {
+          content += " NS_Israel";
+        } else if (series['name'] == "NS_New_Jersey") {
+          content += " NS_New_Jersey";
+        } else if (series['name'] == "NS_White_House") {
+          content += " NS_White_House";
+        } else if (series['name'] == "NS_California") {
+          content += " NS_California";
+        } else if (series['name'] == "NS_Mexico") {
+          content += " NS_Mexico";
+        } else if (series['name'] == "NS_Canada") {
+          content += " NS_Canada";
+        } else if (series['name'] == "TW_United_States") {
+          content += " TW_United_States";
+        } else if (series['name'] == "TW_Iran") {
+          content += " TW_Iran";
+        } else if (series['name'] == "TW_Washington,_D.C.") {
+          content += " TW_Washington,_D.C.";
+        } else if (series['name'] == "TW_China") {
+          content += " TW_China";
+        } else if (series['name'] == "TW_Syria") {
+          content += " TW_Syria";
+        } else if (series['name'] == "TW_Russia") {
+          content += " TW_Russia";
+        } else if (series['name'] == "TW_Iraq") {
+          content += " TW_Iraq";
+        } else if (series['name'] == "TW_Israel") {
+          content += " TW_Israel";
+        } else if (series['name'] == "TW_New_Jersey") {
+          content += " TW_New_Jersey";
+        } else if (series['name'] == "TW_White_House") {
+          content += " TW_White_House";
+        } else if (series['name'] == "TW_California") {
+          content += " TW_California";
+        } else if (series['name'] == "TW_Mexico") {
+          content += " TW_Mexico";
+        } else if (series['name'] == "TW_Canada") {
+          content += " TW_Canada";
+        }
+        return content;
+      } 
+    });
+
+    scales = [];
+
+    var legend = new Rickshaw.Graph.Legend( { graph: graph, element: document.getElementById('legend') } );
+    var shelving = new Rickshaw.Graph.Behavior.Series.Toggle( { graph: graph, legend: legend } );
+    //var order = new Rickshaw.Graph.Behavior.Series.Order( { graph: graph, legend: legend } );
+    var highlight = new Rickshaw.Graph.Behavior.Series.Highlight( { graph: graph, legend: legend } );
+
+    var ticksTreatment = 'glow';
+
+    //var time = new Rickshaw.Fixtures.Time();
+    //var days = time.unit('date');
+    //var days = time.unit('hour');
+//    var xAxis = new Rickshaw.Graph.Axis.Time({ graph: graph, timeUnit: days, orientation: 'bottom', element: document.getElementById('x_axis'), ticksTreatment: ticksTreatment });
+    var xAxis = new Rickshaw.Graph.Axis.X({ graph: graph, orientation: 'bottom', element: document.getElementById('x_axis'), ticksTreatment: ticksTreatment, tickFormat: xAxisFormat, pixelsPerTick: 135 });
+    xAxis.render();
+    var yAxis0 = new Rickshaw.Graph.Axis.Y.Scaled({ graph: graph, orientation: 'left', element: document.getElementById('y_axis0'), scale: tweetScale, pixelsPerTick: 25 });
+    var yAxis1 = new Rickshaw.Graph.Axis.Y.Scaled({ graph: graph, orientation: 'right', element: document.getElementById('y_axis1'), scale: tvScale, pixelsPerTick: 25 });
+    yAxis0.render();
+    yAxis1.render();
+  },
+  series: [
+           {
+             name: 'NS_Canada',
+             color: '#0000a0',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Mexico',
+             color: '#0000ff',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_California',
+             color: '#808000',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_White_House',
+             color: '#800080',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_New_Jersey',
+             color: '#00ffff',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Israel',
+             color: '#ff00ff',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Iraq',
+             color: '#00ff00',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Russia',
+             color: '#808080',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Syria',
+             color: '#ffff00',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_China',
+             color: '#008000',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Washington,_D.C.',
+             color: '#ffa500',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Iran',
+             color: '#800000',
+             scale: tvScale
+           },
+           {
+             name: 'NS_United_States',
+             color: '#ff0000',
+             scale: tvScale
+           }, 
+           {
+             name: 'TW_Canada',
+             color: '#736aff',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Mexico',
+             color: '#4863a0',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_California',
+             color: '#617c58',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_White_House',
+             color: '#c45aec',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_New_Jersey',
+             color: '#9afeff',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Israel',
+             color: '#b93b8f',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Iraq',
+             color: '#b2c248',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Russia',
+             color: '#b6b6b4',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Syria',
+             color: '#fff380',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_China',
+             color: '#6afb92',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Washington,_D.C.',
+             color: '#ffcba4',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Iran',
+             color: '#7e354d',
+             scale: tweetScale
+           },
+           {
+             name: 'TW_United_States',
+             color: '#e55451',
+             scale: tweetScale
+           }] 
+});
+
+//console.log("done");
+
+</script> 
+
+</body>

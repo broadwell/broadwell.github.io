@@ -1,0 +1,304 @@
+<!doctype html> 
+<head>
+
+<title>Twitter event visualizations</title>
+
+<link type="text/css" rel="stylesheet" href="src/css/graph.css">
+<link type="text/css" rel="stylesheet" href="src/css/detail.css">
+<link type="text/css" rel="stylesheet" href="src/css/legend.css">
+<link type="text/css" rel="stylesheet" href="examples/css/lines.css">
+<script src="vendor/d3.v3.js"></script> 
+<script src="vendor/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
+
+<script src="rickshaw.js"></script> 
+
+<style>
+#y_axis0 {
+  position: absolute;
+  width: 50px;
+  height: 800px;
+}
+#y_axis1 {
+  position: absolute;
+  left: 1070px;
+  width: 40px;
+  height: 800px;
+}
+#x_axis {
+  position: relative;
+  left: 60px;
+  height: 40px;
+}
+#chart {
+  left: 60px;
+  width: 1000px
+  position: absolute;
+}
+</style>
+
+</head>
+
+<body>
+  
+<div id="chart_container">
+  <div id="y_axis0"></div>
+  <div id="y_axis1"></div>
+  <div id="chart"></div>
+  <div id="x_axis"></div>
+</div>
+<!--<div id="legend_container">
+  <div id="smoother" title="Smoothing"></div>
+  -->
+<div id="legend"></div>
+<!-- <div id="slider"></div> -->
+ 
+<script> 
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+var xAxisFormat = function(dval) {
+  dval = dval * 1000;
+  var dax = new Date(dval);
+  //var dFormat = d3.time.format.utc("%H:%M");
+  var dFormat = d3.time.format("%H:%M");
+  //var dFormat = d3.time.format.utc("%e %b");
+  console.log("val: " + dval + " date " + dax + ", formatted date: " + dFormat(dax));
+  return dFormat(dax);
+}
+
+var tweetScale = d3.scale.linear().domain([0, 1000]).nice();
+var tvScale = d3.scale.linear().domain([0, 20]).nice();
+
+var ajaxGraph = new Rickshaw.Graph.Ajax({
+  element: document.getElementById("chart"),
+  width: 1000, 
+  height: 400,
+  renderer: 'line', 
+  dataURL: 'gop_persons_all.json',
+  onData: function(d) {
+    //    d[0].data[0].y = d[0].data[0].y;
+    return d },
+  onComplete: function(transport) {
+    var graph = transport.graph;
+    var detail = new Rickshaw.Graph.HoverDetail({ graph: graph,
+      formatter: function(series, x, y) {
+        var matchCount = y.toFixed();
+        var content = numberWithCommas(matchCount);
+        if (series['name'] == "NS_Donald_Trump") {
+          content += " NS_Donald_Trump";
+        } else if (series['name'] == "NS_Jeb_Bush") {
+          content += " NS_Jeb_Bush";
+        } else if (series['name'] == "NS_Carly_Fiorina") {
+          content += " NS_Carly_Fiorina";
+        } else if (series['name'] == "NS_Ronald_Reagan") {
+          content += " NS_Ronald_Reagan";
+        } else if (series['name'] == "NS_Marco_Rubio") {
+          content += " NS_Marco_Rubio";
+        } else if (series['name'] == "NS_Mike_Huckabee") {
+          content += " NS_Mike_Huckabee";
+        } else if (series['name'] == "NS_Barack_Obama") {
+          content += " NS_Barack_Obama";
+        } else if (series['name'] == "NS_George_W._Bush") {
+          content += " NS_George_W._Bush";
+        } else if (series['name'] == "NS_Bobby_Jindal") {
+          content += " NS_Bobby_Jindal";
+        } else if (series['name'] == "NS_Rick_Santorum") {
+          content += " NS_Rick_Santorum";
+        } else if (series['name'] == "NS_Ben_Carson") {
+          content += " NS_Ben_Carson";
+        } else if (series['name'] == "NS_Hillary_Rodham_Clinton") {
+          content += " NS_Hillary_Rodham_Clinton";
+        } else if (series['name'] == "NS_Ted_Cruz") {
+          content += " NS_Ted_Cruz";
+        } else if (series['name'] == "TW_Donald_Trump") {
+          content += " TW_Donald_Trump";
+        } else if (series['name'] == "TW_Jeb_Bush") {
+          content += " TW_Jeb_Bush";
+        } else if (series['name'] == "TW_Carly_Fiorina") {
+          content += " TW_Carly_Fiorina";
+        } else if (series['name'] == "TW_Ronald_Reagan") {
+          content += " TW_Ronald_Reagan";
+        } else if (series['name'] == "TW_Marco_Rubio") {
+          content += " TW_Marco_Rubio";
+        } else if (series['name'] == "TW_Mike_Huckabee") {
+          content += " TW_Mike_Huckabee";
+        } else if (series['name'] == "TW_Barack_Obama") {
+          content += " TW_Barack_Obama";
+        } else if (series['name'] == "TW_George_W._Bush") {
+          content += " TW_George_W._Bush";
+        } else if (series['name'] == "TW_Bobby_Jindal") {
+          content += " TW_Bobby_Jindal";
+        } else if (series['name'] == "TW_Rick_Santorum") {
+          content += " TW_Rick_Santorum";
+        } else if (series['name'] == "TW_Ben_Carson") {
+          content += " TW_Ben_Carson";
+        } else if (series['name'] == "TW_Hillary_Rodham_Clinton") {
+          content += " TW_Hillary_Rodham_Clinton";
+        } else if (series['name'] == "TW_Ted_Cruz") {
+          content += " TW_Ted_Cruz";
+        }
+        return content;
+      } 
+    });
+
+    scales = [];
+
+    var legend = new Rickshaw.Graph.Legend( { graph: graph, element: document.getElementById('legend') } );
+    var shelving = new Rickshaw.Graph.Behavior.Series.Toggle( { graph: graph, legend: legend } );
+    //var order = new Rickshaw.Graph.Behavior.Series.Order( { graph: graph, legend: legend } );
+    var highlight = new Rickshaw.Graph.Behavior.Series.Highlight( { graph: graph, legend: legend } );
+
+    var ticksTreatment = 'glow';
+
+    //var time = new Rickshaw.Fixtures.Time();
+    //var days = time.unit('date');
+    //var days = time.unit('hour');
+//    var xAxis = new Rickshaw.Graph.Axis.Time({ graph: graph, timeUnit: days, orientation: 'bottom', element: document.getElementById('x_axis'), ticksTreatment: ticksTreatment });
+    var xAxis = new Rickshaw.Graph.Axis.X({ graph: graph, orientation: 'bottom', element: document.getElementById('x_axis'), ticksTreatment: ticksTreatment, tickFormat: xAxisFormat, pixelsPerTick: 135 });
+    xAxis.render();
+    var yAxis0 = new Rickshaw.Graph.Axis.Y.Scaled({ graph: graph, orientation: 'left', element: document.getElementById('y_axis0'), scale: tweetScale, pixelsPerTick: 25 });
+    var yAxis1 = new Rickshaw.Graph.Axis.Y.Scaled({ graph: graph, orientation: 'right', element: document.getElementById('y_axis1'), scale: tvScale, pixelsPerTick: 25 });
+    yAxis0.render();
+    yAxis1.render();
+  },
+  series: [
+           {
+             name: 'NS_Hillary_Rodham_Clinton',
+             color: '#0000a0',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Barack_Obama',
+             color: '#0000ff',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Ronald_Reagan',
+             color: '#808000',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_George_W._Bush',
+             color: '#800080',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Marco_Rubio',
+             color: '#00ffff',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Mike_Huckabee',
+             color: '#ff00ff',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Bobby_Jindal',
+             color: '#00ff00',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Rick_Santorum',
+             color: '#808080',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Ted_Cruz',
+             color: '#ffff00',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Ben_Carson',
+             color: '#008000',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Carly_Fiorina',
+             color: '#ffa500',
+             scale: tvScale
+           }, 
+           {
+             name: 'NS_Jeb_Bush',
+             color: '#800000',
+             scale: tvScale
+           },
+           {
+             name: 'NS_Donald_Trump',
+             color: '#ff0000',
+             scale: tvScale
+           }, 
+           {
+             name: 'TW_Hillary_Rodham_Clinton',
+             color: '#736aff',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Barack_Obama',
+             color: '#4863a0',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Ronald_Reagan',
+             color: '#617c58',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_George_W._Bush',
+             color: '#c45aec',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Marco_Rubio',
+             color: '#9afeff',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Mike_Huckabee',
+             color: '#b93b8f',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Bobby_Jindal',
+             color: '#b2c248',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Rick_Santorum',
+             color: '#b6b6b4',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Ted_Cruz',
+             color: '#fff380',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Ben_Carson',
+             color: '#6afb92',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Carly_Fiorina',
+             color: '#ffcba4',
+             scale: tweetScale
+           }, 
+           {
+             name: 'TW_Jeb_Bush',
+             color: '#7e354d',
+             scale: tweetScale
+           },
+           {
+             name: 'TW_Donald_Trump',
+             color: '#e55451',
+             scale: tweetScale
+           }] 
+});
+
+//console.log("done");
+
+</script> 
+
+</body>
