@@ -1,6 +1,6 @@
 {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://127.0.0.1:8887/resultsManifest.json",
+    "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/resultsManifest.json",
     "@type": "sc:Manifest",
     "label": "Annotations",
     "sequences": [
@@ -33,7 +33,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image1",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image1",
                             "@type": "sc:Annotationlist"
                         }
                     ]
@@ -64,7 +64,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image2",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image2",
                             "@type": "sc:Annotationlist"
                         }
                     ]
@@ -95,7 +95,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image3",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image3",
                             "@type": "sc:Annotationlist"
                         }
                     ]
@@ -126,7 +126,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image4",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image4",
                             "@type": "sc:Annotationlist"
                         }
                     ]
@@ -157,7 +157,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image5",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image5",
                             "@type": "sc:Annotationlist"
                         }
                     ]
@@ -188,7 +188,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image6",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image6",
                             "@type": "sc:Annotationlist"
                         }
                     ]
@@ -219,7 +219,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image7",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image7",
                             "@type": "sc:Annotationlist"
                         }
                     ]
@@ -250,7 +250,7 @@
                     ],
                     "otherContent": [
                         {
-                            "@id": "http://127.0.0.1:8887/annotations/image8",
+                            "@id": "https://raw.githubusercontent.com/broadwell/broadwell.github.io/master/manifests/annotations/image8",
                             "@type": "sc:Annotationlist"
                         }
                     ]
