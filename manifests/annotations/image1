@@ -1,0 +1,355 @@
+{
+    "@id": "http://127.0.0.1:8887/annotations/image1",
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:AnnotationList",
+    "resources": [
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting",
+                "oa:tagging"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "oa:Tag",
+                    "http://dev.llgc.org.uk/sas/full_text": "handwriting",
+                    "chars": "handwriting"
+                },
+                {
+                    "@id": "_:b3",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "",
+                    "format": "text/html",
+                    "chars": ""
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b4",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=494.0,1217.0,144.0,92.0"
+                        },
+                        "item": {
+                            "@id": "_:b5",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M494.0,1217.0h72.0h72.0v46.0v46.0h-72.0h-72.0v-46.0z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;rotation&quot;:0,&quot;deleteIcon&quot;:null,&quot;rotationIcon&quot;:null,&quot;group&quot;:null,&quot;editable&quot;:true,&quot;annotation&quot;:null}\" id=\"rectangle_b3aadfdc-0a99-4c9a-9d02-a38fb912cdad\" fill-opacity=\"0\" fill=\"#00bfff\" fill-rule=\"nonzero\" stroke=\"#003366\" stroke-width=\"2\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"8\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        },
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "confidence: 98%",
+                    "format": "text/html",
+                    "chars": "confidence: 98%"
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b3",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=494.0,1217.0,144.0,92.0"
+                        },
+                        "item": {
+                            "@id": "_:b4",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M495.0,1218.0l0.0,43.0l1.0,23.0l1.0,7.0l2.0,6.0l3.0,3.0l3.0,2.0l6.0,3.0l3.0,1.0l11.0,1.0l9.0,0.0l66.0,-1.0l12.0,-1.0l6.0,-2.0l4.0,-2.0l3.0,-2.0l2.0,-2.0l4.0,-7.0l2.0,-6.0l1.0,-48.0l0.0,-8.0l-1.0,-2.0l-2.0,-3.0l-3.0,-3.0l-2.0,-1.0l-4.0,-1.0l-127.0,0.0z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;editable&quot;:true,&quot;deleteIcon&quot;:null,&quot;annotation&quot;:null}\" id=\"rough_path_e6c1ef71-100d-4add-a74d-c6d1d7751102\" fill-opacity=\"0.2\" fill=\"#3f3fa3\" fill-rule=\"nonzero\" stroke=\"#00bfff\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        },
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting",
+                "oa:tagging"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "oa:Tag",
+                    "http://dev.llgc.org.uk/sas/full_text": "handwriting",
+                    "chars": "handwriting"
+                },
+                {
+                    "@id": "_:b3",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "",
+                    "format": "text/html",
+                    "chars": ""
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b4",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=480.0,181.0,508.0,379.0"
+                        },
+                        "item": {
+                            "@id": "_:b5",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M480.0,181.0h254.0h254.0v189.5v189.5h-254.0h-254.0v-189.5z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;rotation&quot;:0,&quot;deleteIcon&quot;:null,&quot;rotationIcon&quot;:null,&quot;group&quot;:null,&quot;editable&quot;:true,&quot;annotation&quot;:null}\" id=\"rectangle_defe38a1-81da-4df7-8dc4-7e68993bf34a\" fill-opacity=\"0\" fill=\"#00bfff\" fill-rule=\"nonzero\" stroke=\"#003366\" stroke-width=\"2\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"8\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        },
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "confidence: 97%",
+                    "format": "text/html",
+                    "chars": "confidence: 97%"
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b3",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=480.0,181.0,508.0,379.0"
+                        },
+                        "item": {
+                            "@id": "_:b4",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M575.0,185.0l-70.0,1.0l-9.0,1.0l-4.0,1.0l-2.0,1.0l-2.0,2.0l-3.0,9.0l-1.0,7.0l-1.0,8.0l-1.0,11.0l-1.0,12.0l-1.0,46.0l0.0,88.0l1.0,73.0l1.0,14.0l1.0,9.0l1.0,7.0l1.0,5.0l2.0,8.0l2.0,6.0l9.0,6.0l42.0,27.0l4.0,2.0l33.0,12.0l6.0,2.0l29.0,8.0l4.0,1.0l48.0,0.0l30.0,-1.0l119.0,-4.0l29.0,-1.0l83.0,-5.0l13.0,-6.0l4.0,-2.0l5.0,-3.0l6.0,-4.0l4.0,-4.0l3.0,-4.0l4.0,-8.0l4.0,-12.0l3.0,-11.0l1.0,-25.0l1.0,-44.0l1.0,-105.0l0.0,-34.0l-7.0,-52.0l-1.0,-2.0l-5.0,-9.0l-4.0,-6.0l-3.0,-4.0l-7.0,-7.0l-6.0,-3.0l-5.0,-2.0l-11.0,-4.0l-122.0,-3.0l-71.0,-1.0l-150.0,-1.0l-7.0,0.0z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;editable&quot;:true,&quot;deleteIcon&quot;:null,&quot;annotation&quot;:null}\" id=\"rough_path_f18d820a-7fab-466e-a9c9-6915969c517e\" fill-opacity=\"0.2\" fill=\"#3f3fa3\" fill-rule=\"nonzero\" stroke=\"#00bfff\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        },
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting",
+                "oa:tagging"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "oa:Tag",
+                    "http://dev.llgc.org.uk/sas/full_text": "handwriting",
+                    "chars": "handwriting"
+                },
+                {
+                    "@id": "_:b3",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "",
+                    "format": "text/html",
+                    "chars": ""
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b4",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=242.0,1138.0,171.0,73.0"
+                        },
+                        "item": {
+                            "@id": "_:b5",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M242.0,1138.0h85.5h85.5v36.5v36.5h-85.5h-85.5v-36.5z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;rotation&quot;:0,&quot;deleteIcon&quot;:null,&quot;rotationIcon&quot;:null,&quot;group&quot;:null,&quot;editable&quot;:true,&quot;annotation&quot;:null}\" id=\"rectangle_b2ab7080-d057-4f4b-b7bf-9889f3c62ab1\" fill-opacity=\"0\" fill=\"#00bfff\" fill-rule=\"nonzero\" stroke=\"#003366\" stroke-width=\"2\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"8\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        },
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "confidence: 96%",
+                    "format": "text/html",
+                    "chars": "confidence: 96%"
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b3",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=242.0,1138.0,171.0,73.0"
+                        },
+                        "item": {
+                            "@id": "_:b4",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M244.0,1139.0l-1.0,3.0l-1.0,38.0l0.0,13.0l1.0,9.0l1.0,3.0l1.0,1.0l4.0,1.0l5.0,1.0l99.0,2.0l8.0,0.0l43.0,-2.0l4.0,-1.0l2.0,-11.0l1.0,-6.0l0.0,-8.0l-3.0,-20.0l-1.0,-6.0l-2.0,-3.0l-3.0,-4.0l-5.0,-4.0l-2.0,-1.0l-12.0,-3.0l-82.0,-2.0l-57.0,0.0z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;editable&quot;:true,&quot;deleteIcon&quot;:null,&quot;annotation&quot;:null}\" id=\"rough_path_166c4457-671c-4bf0-8a5a-731df82cb1ac\" fill-opacity=\"0.2\" fill=\"#3f3fa3\" fill-rule=\"nonzero\" stroke=\"#00bfff\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        },
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting",
+                "oa:tagging"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "oa:Tag",
+                    "http://dev.llgc.org.uk/sas/full_text": "handwriting",
+                    "chars": "handwriting"
+                },
+                {
+                    "@id": "_:b3",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "",
+                    "format": "text/html",
+                    "chars": ""
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b4",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=345.0,1174.0,215.0,116.0"
+                        },
+                        "item": {
+                            "@id": "_:b5",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M345.0,1174.0h107.5h107.5v58.0v58.0h-107.5h-107.5v-58.0z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;rotation&quot;:0,&quot;deleteIcon&quot;:null,&quot;rotationIcon&quot;:null,&quot;group&quot;:null,&quot;editable&quot;:true,&quot;annotation&quot;:null}\" id=\"rectangle_50ac7daa-8ddd-42ba-9329-6b717385b94b\" fill-opacity=\"0\" fill=\"#00bfff\" fill-rule=\"nonzero\" stroke=\"#003366\" stroke-width=\"2\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"8\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        },
+        {
+            "@type": "oa:Annotation",
+            "motivation": [
+                "oa:commenting"
+            ],
+            "resource": [
+                {
+                    "@id": "_:b2",
+                    "@type": "dctypes:Text",
+                    "http://dev.llgc.org.uk/sas/full_text": "confidence: 95%",
+                    "format": "text/html",
+                    "chars": "confidence: 95%"
+                }
+            ],
+            "on": [
+                {
+                    "@id": "_:b0",
+                    "@type": "oa:SpecificResource",
+                    "within": {
+                        "@id": "http://dams.llgc.org.uk/iiif/2.0/4004562/canvas/4004568.json",
+                        "@type": "sc:Canvas"
+                    },
+                    "selector": {
+                        "@id": "_:b1",
+                        "@type": "oa:Choice",
+                        "default": {
+                            "@id": "_:b3",
+                            "@type": "oa:FragmentSelector",
+                            "value": "xywh=345.0,1174.0,215.0,116.0"
+                        },
+                        "item": {
+                            "@id": "_:b4",
+                            "@type": "oa:SvgSelector",
+                            "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M349.0,1175.0l-2.0,1.0l-1.0,6.0l-1.0,15.0l0.0,19.0l1.0,51.0l1.0,5.0l1.0,4.0l1.0,2.0l6.0,3.0l16.0,4.0l121.0,2.0l36.0,0.0l27.0,-4.0l1.0,-1.0l1.0,-2.0l1.0,-3.0l1.0,-10.0l0.0,-41.0l-1.0,-9.0l-1.0,-5.0l-1.0,-3.0l-2.0,-2.0l-6.0,-4.0l-16.0,-6.0l-69.0,-19.0l-9.0,-2.0l-7.0,-1.0l-98.0,0.0z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;editable&quot;:true,&quot;deleteIcon&quot;:null,&quot;annotation&quot;:null}\" id=\"rough_path_d2f62bf9-8222-42c2-a3ce-960a12e24fe8\" fill-opacity=\"0.2\" fill=\"#3f3fa3\" fill-rule=\"nonzero\" stroke=\"#00bfff\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+                        }
+                    }
+                }
+            ],
+            "@context": "http://iiif.io/api/presentation/2/context.json"
+        }
+    ]
+}
