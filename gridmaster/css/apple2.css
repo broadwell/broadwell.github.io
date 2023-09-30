@@ -1,6 +1,67 @@
+@font-face {
+    font-family: 'Motter Tektura';
+    src: url('fonts/MotterTekturaNormal.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('fonts/MyriadProRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold';
+    src: url('fonts/MyriadProSemiBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Garamond Pro';
+    src: url('fonts/AGaramondPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#emulator {
+    --scale: 1;
+    transform: scale(var(--scale));
+    transform-origin: top center;
+}
+
+#explanation {
+    margin: 0px 5vw;
+    padding: 5px 0px;
+    min-width: 40vw;
+}
+
+#explanation > div > h2 {
+    font-family: "Myriad Pro";
+    font-size: 24pt;
+    margin-bottom: 0px;
+}
+
+#explanation > div > p {
+    font-family: "Garamond Pro",Garamond,Times;
+    font-size: 14pt;
+    margin-top: 0px;
+}
+
+#explanation > div > ul {
+    font-family: "Garamond Pro",Garamond,Times;
+    font-size: 14pt;
+    margin-top: 0px;
+}
+
 #header {
-  width: 580px;
-  margin: auto;
+    width: 580px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 img {
@@ -38,13 +99,22 @@ input[type="text"] {
 body {
     margin: 16px 0;
     font-size: 14px;
-    background-color: #c4c1a0; /* Pantone 453 */
     font-family: sans-serif;
+    background-color: #c4c1a0; /* Pantone 453 */
+}
+
+section {
+    background-color: red;
+    color: white;
+    padding: 10px;
 }
 
 .outer {
     margin: auto;
+    padding: 10px 10px 10px 10px;
     width: 620px;
+    border: 3px inset #f0edd0;
+    border-radius: 5px;
 }
 
 #display {
